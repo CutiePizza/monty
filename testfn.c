@@ -42,3 +42,11 @@ void pall(stack_t **st, unsigned int line_number)
 		i++;
 	}
 }
+
+void pint(stack_t **st, unsigned int line_number)
+{
+        stack_t *p = *st;
+       printf("line number of pint %d\n", line_number);
+       if (p)
+       printf("%d\n", p -> n);
+}

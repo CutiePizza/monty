@@ -5,3 +5,9 @@ pall
 push 5
 push 45
 pall
+push 2
+pint
+push 1
+pint
+push 3
+pint

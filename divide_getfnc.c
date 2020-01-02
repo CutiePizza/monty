@@ -52,6 +52,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 	instruction_t tab[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 };
 	while (tab[i].opcode != NULL)
