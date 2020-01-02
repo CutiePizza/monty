@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
 	while (re = getline(&line, &len, mo))
 	{
 		divide(line, line_num);
+		line_num++;
+		line = NULL;
 	}
 	return(0);
 }
