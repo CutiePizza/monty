@@ -6,11 +6,10 @@
  * @line_num: Line number in the file
  */
 
-void divide(char *line, int line_num)
+void divide(char *line, unsigned int line_num, stack_t **head)
 {
 	char *ch, *cch;
 	void (*fn)(stack_t **, unsigned int);
-	stack_t *head = NULL;
 	
 	ch = malloc(sizeof(line));
 	cch = malloc(sizeof(line));
@@ -20,23 +19,15 @@ void divide(char *line, int line_num)
 		exit(EXIT_FAILURE);
 	}
 	ch = strtok(line, " \n");
-	printf("%s\n", ch);
-	cch = strtok(NULL, " \n");
-	printf("%s\n", cch);
-	glob = strdup(cch);
-	/*if (cch != NULL)
-	{
-		if (isdigit(cch) != 0)
-			glob = atoi(cch);
-	}*/
+	printf("opcode = %s\n", ch);
+	cch = strtok(0, " \n");
+
 	fn = get_fn(ch);
 	if (fn == NULL)
-	{	//fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch, 26);
+	{	fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
 		exit(EXIT_FAILURE);
 	}
-	fn(&head, line_num);
-//	free(ch);
-//	free(cch);
+	fn(&(*head), line_num);
 }
 
 /**
@@ -61,9 +52,9 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 	}; */
 	instruction_t tab[] = {
 		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 };
-
 	while (tab[i].opcode != NULL)
 	{
 		if (strcmp(tab[i].opcode, ch) == 0)
