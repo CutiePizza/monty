@@ -18,8 +18,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		perror("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	ch = strtok(line, " \n");
-	printf("opcode = %s\n", ch);
+	ch = strtok(line, " \n");	
 	cch = strtok(0, " \n");
 
 	fn = get_fn(ch);
