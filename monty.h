@@ -8,6 +8,7 @@
 #include <error.h>
 #include <ctype.h>
 
+extern char *glob;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -46,5 +47,5 @@ void divide(char *, unsigned int, stack_t **);
 void (*get_fn(char *ch))(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
-
+void pint(stack_t **, unsigned int);
 #endif

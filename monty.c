@@ -10,7 +10,7 @@
 int main(int argc, char *argv[])
 {
 	ssize_t re = 0;
-	unsigned int line_num = 0;
+	unsigned int line_num = 1;
 	size_t len = 0;
 	char *line = NULL;
 	FILE *mo;
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	while ((re != EOF))
-	{	
+	{
 		re = getline(&line, &len, mo);
 		if (re == -1)
 			break;

@@ -5,12 +5,12 @@
  * @line: string to interpret
  * @line_num: Line number in the file
  */
+char *glob = NULL;
 
 void divide(char *line, unsigned int line_num, stack_t **head)
 {
 	char *ch, *cch;
 	void (*fn)(stack_t **, unsigned int);
-	
 	ch = malloc(sizeof(line));
 	cch = malloc(sizeof(line));
 	if (ch == NULL || cch == NULL)
@@ -18,9 +18,13 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		perror("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	ch = strtok(line, " \n");	
+	ch = strtok(line, " \n");
+	if (ch == NULL)
+		return;	
 	cch = strtok(0, " \n");
-
+	glob = malloc(sizeof(cch));
+	if (cch != NULL)
+		glob = strdup(cch);
 	fn = get_fn(ch);
 	if (fn == NULL)
 	{	fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
@@ -52,6 +56,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 	instruction_t tab[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 };
 	while (tab[i].opcode != NULL)
