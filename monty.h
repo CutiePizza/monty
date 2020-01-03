@@ -6,8 +6,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <error.h>
+#include <ctype.h>
 
-extern int glob;
+extern char *glob;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,6 +42,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void divide (char *line, int line_num);
-void (*get_fn(char ch))(stack_t, unsigned int);
+void divide(char *line, int line_num);
+void (*get_fn(char *ch))(stack_t **, unsigned int);
+void push(stack_t **st, unsigned int line_number);
 #endif

@@ -6,34 +6,37 @@
  * @line_num: Line number in the file
  */
 
-void divide (char *line, int line_num)
+void divide(char *line, int line_num)
 {
 	char *ch, *cch;
-	void (*f) (stack_t, unsigned int);
+	void (*fn)(stack_t **, unsigned int);
 	stack_t *head = NULL;
-
+	
 	ch = malloc(sizeof(line));
 	cch = malloc(sizeof(line));
-	if (ch == NULL)
+	if (ch == NULL || cch == NULL)
 	{
 		perror("Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	ch = strtok(ch, " \n");
+	ch = strtok(line, " \n");
+	printf("%s\n", ch);
 	cch = strtok(NULL, " \n");
-	if (cch != NULL)
+	printf("%s\n", cch);
+	glob = strdup(cch);
+	/*if (cch != NULL)
 	{
-		if (isdigit(cch))
+		if (isdigit(cch) != 0)
 			glob = atoi(cch);
-	}
-	f = get_fn(ch);
-	if (f == NULL)
-	{	fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch, 26);
+	}*/
+	fn = get_fn(ch);
+	if (fn == NULL)
+	{	//fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch, 26);
 		exit(EXIT_FAILURE);
 	}
-	f(*head, line_num);
-	free(ch);
-	free(cch);
+	fn(&head, line_num);
+//	free(ch);
+//	free(cch);
 }
 
 /**
@@ -42,11 +45,11 @@ void divide (char *line, int line_num)
  * Return: Pointer to function
  */
 
-void (*get_fn(char ch))(stack_t, unsigned int)
+void (*get_fn(char *ch))(stack_t **, unsigned int)
 {
 	int i = 0;
 
-	stack_t tab[] = {
+	/* stack_t tab[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
@@ -55,7 +58,11 @@ void (*get_fn(char ch))(stack_t, unsigned int)
 		{"add", add},
 		{"nop", nop},
 		{NULL, NULL}
-	};
+	}; */
+	instruction_t tab[] = {
+		{"push", push},
+		{NULL, NULL}
+};
 
 	while (tab[i].opcode != NULL)
 	{
@@ -63,5 +70,5 @@ void (*get_fn(char ch))(stack_t, unsigned int)
 			break;
 		i++;
 	}
-	return(tab[i].f);
+	return (tab[i].f);
 }
