@@ -1,6 +1,6 @@
         push        1
 push 2
-push m
+pint
 pall
 push                                                 4
 pint j

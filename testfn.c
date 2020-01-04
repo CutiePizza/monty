@@ -12,12 +12,16 @@ void push(stack_t **st, unsigned int line_number)
 
 	if (glob == NULL || !atoi(glob))
 	{
+		if (*st == NULL)
+			free_list(*st);
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
+		if (glob == NULL)
+			free(glob);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -63,6 +67,8 @@ void pint(stack_t **st, unsigned int line_number)
 		printf("%d\n", p->n);
 	else
 	{
+		if (glob == NULL)
+			free(glob);
 		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}

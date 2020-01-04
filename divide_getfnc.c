@@ -14,10 +14,15 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	char *ch, *cch;
 	void (*fn)(stack_t **, unsigned int);
 
+	if (line != NULL)
+	{
 	ch = malloc(sizeof(line));
 	cch = malloc(sizeof(line));
+	}
 	if (ch == NULL || cch == NULL)
 	{
+		if (*head == NULL)
+			free_list(*head);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -30,6 +35,10 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	fn = get_fn(ch);
 	if (fn == NULL)
 	{
+		if (*head == NULL)
+			free_list(*head);
+		free(ch);
+		free(glob);
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
 		exit(EXIT_FAILURE);
 	}
@@ -59,4 +68,20 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		i++;
 	}
 	return (tab[i].f);
+}
+/**
+ * free_list - frees a list
+ * @head: header of the list
+ */
+
+void free_list(stack_t *head)
+{
+	stack_t *p = NULL;
+
+	while (head != NULL)
+	{
+		p = head->next;
+		free(head);
+		head = p;
+	}
 }

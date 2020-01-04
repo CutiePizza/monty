@@ -36,7 +36,8 @@ int main(int argc, char *argv[])
 		line_num++;
 	}
 	free(line);
-	free(head);
+	free_list(head);
+	free(glob);
 	fclose(mo);
 	return (EXIT_SUCCESS);
 }
