@@ -37,8 +37,6 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	{
 		if (*head == NULL)
 			free_list(*head);
-		free(ch);
-		free(glob);
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
 		exit(EXIT_FAILURE);
 	}
