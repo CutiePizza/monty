@@ -29,6 +29,12 @@ void push(stack_t **st, unsigned int line_number)
 	(*st) = node;
 }
 
+/**
+ * pall - Display the elements of the stack
+ * @st: Top of the stack
+ * @line_number: line number
+ */
+
 void pall(stack_t **st, unsigned int line_number)
 {
 	unsigned int i = 0;
@@ -37,16 +43,22 @@ void pall(stack_t **st, unsigned int line_number)
 	(void)line_number;
 	while (p != NULL)
 	{
-		printf("%d\n", p -> n);
+		printf("%d\n", p->n);
 		p = p->next;
 		i++;
 	}
 }
+
+/**
+ * pint - Display only the top element of the stack
+ * @st: Top pf the stack
+ * @line_number: line number
+ */
 
 void pint(stack_t **st, unsigned int line_number)
 {
 stack_t *p = *st;
 (void)line_number;
 if (p)
-printf("%d\n", p -> n);
+printf("%d\n", p->n);
 }

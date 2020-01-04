@@ -1,16 +1,19 @@
 #include "monty.h"
 
+char *glob = NULL;
+
 /**
  * divide - Interpret the line given
  * @line: string to interpret
  * @line_num: Line number in the file
+ * @head: Top of the stack
  */
-char *glob = NULL;
 
 void divide(char *line, unsigned int line_num, stack_t **head)
 {
 	char *ch, *cch;
 	void (*fn)(stack_t **, unsigned int);
+
 	ch = malloc(sizeof(line));
 	cch = malloc(sizeof(line));
 	if (ch == NULL || cch == NULL)
@@ -20,7 +23,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	}
 	ch = strtok(line, " \n");
 	if (ch == NULL)
-		return;	
+		return;
 	cch = strtok(0, " \n");
 	glob = malloc(sizeof(cch));
 	if (cch != NULL)
@@ -42,23 +45,13 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 void (*get_fn(char *ch))(stack_t **, unsigned int)
 {
 	int i = 0;
-
-	/* stack_t tab[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{NULL, NULL}
-	}; */
 	instruction_t tab[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
 		{NULL, NULL}
 };
+
 	while (tab[i].opcode != NULL)
 	{
 		if (strcmp(tab[i].opcode, ch) == 0)
