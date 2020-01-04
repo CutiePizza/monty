@@ -18,7 +18,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	cch = malloc(sizeof(line));
 	if (ch == NULL || cch == NULL)
 	{
-		perror("Error: malloc failed\n");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	ch = strtok(line, " \n");

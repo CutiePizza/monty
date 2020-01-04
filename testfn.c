@@ -18,7 +18,7 @@ void push(stack_t **st, unsigned int line_number)
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
-		perror("Error: malloc failed\n");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	node->n = atoi(glob);
@@ -57,13 +57,13 @@ void pall(stack_t **st, unsigned int line_number)
 
 void pint(stack_t **st, unsigned int line_number)
 {
-stack_t *p = *st;
+	stack_t *p = *st;
 
-if (p)
-printf("%d\n", p->n);
-else
-{
-dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", line_number);
-exit(EXIT_FAILURE);
-}
+	if (p)
+		printf("%d\n", p->n);
+	else
+	{
+		dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }

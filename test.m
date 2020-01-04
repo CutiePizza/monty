@@ -2,12 +2,10 @@
 push 2
 push 3
 pall
-push 5
-push 45
-pall
-push 2
-pint
-push p
-pint
-push 3
+push                                                 4
+pint j
+                             push     5
+                             pall
+push 6
+push 7
 pint
