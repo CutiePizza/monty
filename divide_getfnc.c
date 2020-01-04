@@ -20,7 +20,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	}
 	if (ch == NULL || cch == NULL)
 	{
-		if (*head == NULL)
+		if (*head != NULL)
 			free_list(*head);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
@@ -34,12 +34,14 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	fn = get_fn(ch);
 	if (fn == NULL)
 	{
-		if (*head == NULL)
+		if (*head != NULL)
 			free_list(*head);
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
 		exit(EXIT_FAILURE);
 	}
 	fn(&(*head), line_num);
+	free(ch);
+	free(cch);
 }
 
 /**
