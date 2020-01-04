@@ -12,7 +12,7 @@ void push(stack_t **st, unsigned int line_number)
 
 	if (glob == NULL || !atoi(glob))
 	{
-		fprintf(STDERR_FILENO, "L%i: usage: push integer\n", line_number);
+		dprintf(STDERR_FILENO, "L%i: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	node = malloc(sizeof(stack_t));
@@ -63,7 +63,7 @@ if (p)
 printf("%d\n", p->n);
 else
 {
-fprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", line_number);
+dprintf(STDERR_FILENO, "L%i: can't pint, stack empty\n", line_number);
 exit(EXIT_FAILURE);
 }
 }
