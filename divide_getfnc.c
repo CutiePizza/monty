@@ -18,7 +18,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	cch = malloc(sizeof(line));
 	if (ch == NULL || cch == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	ch = strtok(line, " \n");
@@ -30,7 +30,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	fn = get_fn(ch);
 	if (fn == NULL)
 	{
-		dprintf(STDERR_FILENO, "L%i: unknown instruction %s\n", line_num, ch);
+		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
 		exit(EXIT_FAILURE);
 	}
 	fn(&(*head), line_num);
