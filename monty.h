@@ -8,7 +8,7 @@
 #include <error.h>
 #include <ctype.h>
 
-extern char *glob;
+extern FILE *glob;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -45,9 +45,11 @@ typedef struct instruction_s
 
 void divide(char *, unsigned int, stack_t **);
 void (*get_fn(char *ch))(stack_t **, unsigned int);
-void push(stack_t **, unsigned int);
+void push(int, stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void free_list(stack_t *head);
+int push_verify(char *);
+int check_digit(char *);
 #endif

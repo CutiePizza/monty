@@ -1,5 +1,5 @@
 #include "monty.h"
-
+FILE *glob = NULL; 
 /**
  * main - main function of Monty's project
  * @argc: number of arguments
@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+	glob = mo;
 	while ((re != EOF))
 	{
 		re = getline(&line, &len, mo);

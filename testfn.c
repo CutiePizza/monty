@@ -6,24 +6,28 @@
  * @line_number: line number of function
  */
 
-void push(stack_t **st, unsigned int line_number)
+void push(int num, stack_t **st, unsigned int line_number)
 {
 	stack_t *node = NULL;
 
-	if (glob == NULL || !atoi(glob))
+	if (!num)
 	{
-		if (*st == NULL)
+		if (*st != NULL)
 			free_list(*st);
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
+		fclose(glob);
 		exit(EXIT_FAILURE);
 	}
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
+	  if (*st != NULL)
+			free_list(*st);
 		fprintf(stderr, "Error: malloc failed\n");
+		fclose(glob);
 		exit(EXIT_FAILURE);
 	}
-	node->n = atoi(glob);
+	node->n = num;
 	if (*st != NULL)
 		(*st)->prev = node;
 	node->next = (*st);

@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *glob = NULL;
+
 
 /**
  * divide - Interpret the line given
@@ -10,7 +10,7 @@ char *glob = NULL;
  */
 
 void divide(char *line, unsigned int line_num, stack_t **head)
-{
+{       int ok = 0, num = 0;
 	char *ch, *cch;
 	void (*fn)(stack_t **, unsigned int);
 	if (line != NULL)
@@ -29,8 +29,13 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	if (ch == NULL)
 		return;
 	cch = strtok(0, " \n");
-	if (cch != NULL)
-		glob = strdup(cch);
+	if (cch != NULL && check_digit(cch) == 0)
+	  num = atoi(cch);
+	ok = push_verify(ch);
+	if (ok == 0)
+		   push(num, &(*head), line_num);
+	else
+	  {
 	fn = get_fn(ch);
 	if (fn == NULL)
 	{
@@ -40,8 +45,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		exit(EXIT_FAILURE);
 	}
 	fn(&(*head), line_num);
-	free(ch);
-	free(cch);
+}
 }
 
 /**
@@ -54,7 +58,6 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 {
 	int i = 0;
 	instruction_t tab[] = {
-		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
 		{"nop", nop},
@@ -85,3 +88,30 @@ void free_list(stack_t *head)
 		head = p;
 	}
 }
+/**
+ *
+ *
+ *
+ */
+int push_verify(char *ch)
+{
+  if (strcmp("push", ch) == 0)
+	     return(0);
+  
+  return(1);
+  
+}
+/**
+ *
+ *
+ */
+int check_digit(char *cch)
+{
+  unsigned int i;
+  for (i= 0 ; i < strlen(cch); i++)
+    {
+      if (cch[i] < '0' || cch[i] > '9')
+	  return(1);
+    }
+  return(0);
+	  }
