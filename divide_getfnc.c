@@ -13,7 +13,6 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 {
 	char *ch, *cch;
 	void (*fn)(stack_t **, unsigned int);
-
 	if (line != NULL)
 	{
 	ch = malloc(sizeof(line));
@@ -56,6 +55,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"nop", nop},
 		{NULL, NULL}
 };
 

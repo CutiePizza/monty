@@ -69,3 +69,13 @@ void pint(stack_t **st, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ *
+ *
+ */
+void nop(stack_t **st, unsigned int line_number)
+{
+(void)line_number;
+(void)st;
+return;
+}

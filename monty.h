@@ -48,6 +48,6 @@ void (*get_fn(char *ch))(stack_t **, unsigned int);
 void push(stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
-
+void nop(stack_t **, unsigned int);
 void free_list(stack_t *head);
 #endif
