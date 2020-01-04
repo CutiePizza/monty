@@ -75,7 +75,6 @@ void pint(stack_t **st, unsigned int line_number)
  */
 void nop(stack_t **st, unsigned int line_number)
 {
-(void)line_number;
-(void)st;
+if (line_number && st)
 return;
 }
