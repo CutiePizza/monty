@@ -7,7 +7,7 @@ push 45
 pall
 push 2
 pint
-push 1
+push p
 pint
 push 3
 pint

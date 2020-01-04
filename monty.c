@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	mo = fopen(argv[1], "r");
 	if (mo == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(STDERR_FILENO, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while ((re != EOF))
@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 		line_num++;
 	}
 	free(line);
+	free(head);
 	fclose(mo);
 	return (EXIT_SUCCESS);
 }
