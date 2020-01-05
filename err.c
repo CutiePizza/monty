@@ -21,6 +21,7 @@ void print_err(void)
 }
 /**
  * print_err - display error
+ * @argv: string
  */
 void cant_open(char *argv)
 {
