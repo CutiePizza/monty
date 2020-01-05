@@ -111,11 +111,34 @@ int push_verify(char *ch)
  */
 int check_digit(char *cch)
 {
-  unsigned int i;
-  for (i= 0 ; i < strlen(cch); i++)
-    {
-      if (cch[i] > '0' || cch[i] < '9' || cch[0] == '-')
-	  return(0);
-    }
-  return(1);
+unsigned int i;
+unsigned int  ok = 0;
+	if (cch[0] == '-')
+        {
+        for (i = 1; i < strlen(cch); i++)
+        {
+                if (isdigit(cch[i]) == 0)
+                {
+                        ok = 1;
+                        break;
+                }
+        }  
+        }
+        else
+        {
+           for (i = 0; i < strlen(cch); i++)
+        {
+                if (isdigit(cch[i]) == 0)
+                {
+                        ok = 1;
+                        break;
+                }
+        }       
+        }
+          
+       
+if (ok == 0)
+        return (0);
+else
+  return (1);
 	  }
