@@ -60,6 +60,10 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"pop", pop},
 		{"add", add},
+		{"sub", sub},
+		{"div", divfn},
+		{"mul", mul},
+		{"mod", modfn},
 		{NULL, NULL}
 	};
 
@@ -136,8 +140,6 @@ int check_digit(char *cch)
 			}
 		}
 	}
-
-
 	if (ok == 0)
 		return (0);
 	else

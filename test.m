@@ -1,7 +1,5 @@
-     push 8
-    
-        push -4
-  pall
-  nop
-  pop
-  pall
+push 3
+push 8
+push 6
+mod
+pall
