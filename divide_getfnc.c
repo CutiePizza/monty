@@ -28,8 +28,8 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	if (ch == NULL)
 		return;
 	opcode = strdup(ch);
-	free(ch);
-	ch = malloc(100);
+	
+	
 	ch = strtok(0, " \n\t");
 	ok = push_verify(opcode);
 	if (ok == 0)
@@ -49,7 +49,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		
 		fn(&(*head), line_num);
 	}
-	free(ch);
+	
 	free(opcode);
 }
 
@@ -68,6 +68,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"nop", nop},
 		{"swap", swap},
 		{"pop", pop},
+		{"add", add},
 		{NULL, NULL}
 	};
 
