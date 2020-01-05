@@ -103,7 +103,7 @@ int push_verify(char *ch)
 	     return(0);
   
   return(1);
-  
+
 }
 /**
  *
@@ -114,8 +114,8 @@ int check_digit(char *cch)
   unsigned int i;
   for (i= 0 ; i < strlen(cch); i++)
     {
-      if (cch[i] < '0' || cch[i] > '9')
-	  return(1);
+      if (cch[i] > '0' || cch[i] < '9' || cch[0] == '-')
+	  return(0);
     }
-  return(0);
+  return(1);
 	  }
