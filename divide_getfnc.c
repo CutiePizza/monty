@@ -72,6 +72,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"sub", sub},
 		{"div", divfn},
 		{"mul", mul},
+		{"mod", modfn},
 		{NULL, NULL}
 	};
 
