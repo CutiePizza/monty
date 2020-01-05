@@ -70,6 +70,11 @@ void pint(stack_t **st, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
+
+		if (*st)
+		  free_list(*st);
+		fclose(glob);
+		   
 		exit(EXIT_FAILURE);
 	}
 }

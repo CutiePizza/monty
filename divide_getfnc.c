@@ -22,6 +22,8 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	{
 		if (*head != NULL)
 			free_list(*head);
+		fclose(glob);
+		free(line);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -41,6 +43,8 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	{
 		if (*head != NULL)
 			free_list(*head);
+		fclose(glob);
+		free(line);
 		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
 		exit(EXIT_FAILURE);
 	}

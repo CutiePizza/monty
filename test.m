@@ -1,5 +1,5 @@
         push        1
-push 2hello
+push 2
 pint
 pall
 push                                                 4
