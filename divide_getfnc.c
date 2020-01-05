@@ -17,40 +17,31 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		ch = malloc(sizeof(line));
 	if (ch == NULL)
 	{
-		if (*head != NULL)
-			free_list(*head);
-		fclose(glob);
-		free(line);
+		glob = 1;
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		return;
 	}
 	ch = strtok(line, " \n\t");
 	if (ch == NULL)
 		return;
 	opcode = strdup(ch);
-	
-	
-	ch = strtok(0, " \n\t");
+	ch = strtok(NULL, " \n\t");
 	ok = push_verify(opcode);
 	if (ok == 0)
-		push(ch, &(*head), line_num, &line);
+		push(ch, &(*head), line_num);
 	else
 	{
 		fn = get_fn(opcode);
 		if (fn == NULL)
 		{
-			if (*head != NULL)
-				free_list(*head);
-			fclose(glob);
-			free(line);
+			glob = 1;
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_num, opcode);
-			exit(EXIT_FAILURE);
-		}
-		
+			free(opcode);
+			free(ch);
+			return;
+		}	
 		fn(&(*head), line_num);
 	}
-	
-	free(opcode);
 }
 
 /**

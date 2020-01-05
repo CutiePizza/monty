@@ -1,3 +1,7 @@
-push 3
-add
-pall
+     push 8
+    
+        push -4
+  pall
+  nop
+  pop
+  pall

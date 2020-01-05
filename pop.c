@@ -12,8 +12,9 @@ void pop(stack_t **st, unsigned int line_number)
 
         if (*st == NULL)
         {
-                fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
-                exit(EXIT_FAILURE);
+                glob = 1;
+		fprintf(stderr, "L%i: can't pop an empty stack\n", line_number);
+                return;
         }
         if ((*st) != NULL)
         {
@@ -21,19 +22,18 @@ void pop(stack_t **st, unsigned int line_number)
                 free(*st);
                 *st = p;
         }
-
-
 }
 
 /**
  *
  *
  */
+
 void add(stack_t **st, unsigned int line_number)
 {
 
   unsigned int i = 0, sum=0;
-	stack_t *p = *st;
+  stack_t *p = *st;
 
 	(void)line_number;
 	while (p != NULL)
@@ -45,8 +45,9 @@ void add(stack_t **st, unsigned int line_number)
        
 	  if (i < 2)
 		  {
+	glob = 1;
 	fprintf(stderr, "L%i: can't add, stack too short\n", line_number);
-	exit(EXIT_FAILURE);
+	return;
 		  }
 		else
 		  {

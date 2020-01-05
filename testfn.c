@@ -7,31 +7,25 @@
  * @ch: num to add to stack
  */
 
-void push(char *ch, stack_t **st, unsigned int line_number, char **line)
+void push(char *ch, stack_t **st, unsigned int line_number)
 {
 	stack_t *node = NULL;
 	(void)line_number;
 
 	if (ch == NULL || check_digit(ch) == 1)
 	{
-		if (*st != NULL)
-			free_list(*st);
-		free(*line);
+		glob = 1;
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
-		fclose(glob);
-		exit(EXIT_FAILURE);
+		return;
 	}
 	else
 	{
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
-		if (*st != NULL)
-			free_list(*st);
-		free(*line);
+		glob = 1;
 		fprintf(stderr, "Error: malloc failed\n");
-		fclose(glob);
-		exit(EXIT_FAILURE);
+		return;
 	}
 	node->n = atoi(ch);
 	if (*st != NULL)
@@ -76,11 +70,9 @@ void pint(stack_t **st, unsigned int line_number)
 		printf("%d\n", p->n);
 	else
 	{
+		glob = 1;
 		fprintf(stderr, "L%i: can't pint, stack empty\n", line_number);
-		if (*st)
-			free_list(*st);
-		fclose(glob);
-		exit(EXIT_FAILURE);
+		return;
 	}
 }
 

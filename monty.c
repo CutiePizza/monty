@@ -1,6 +1,6 @@
 #include "monty.h"
 
-FILE *glob = NULL;
+int glob = 0;
 
 /**
  * main - main function of Monty's project
@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	glob = mo;
 	while ((re != EOF))
 	{
 		re = getline(&line, &len, mo);
@@ -37,6 +36,13 @@ int main(int argc, char *argv[])
 			break;
 		divide(line, line_num, &head);
 		line_num++;
+		if (glob == 1)
+		{
+			free(line);
+			free_list(head);
+			fclose(mo);
+			exit(EXIT_FAILURE);
+		}
 	}
 	free(line);
 	free_list(head);
