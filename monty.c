@@ -1,5 +1,7 @@
 #include "monty.h"
-FILE *glob = NULL; 
+
+FILE *glob = NULL;
+
 /**
  * main - main function of Monty's project
  * @argc: number of arguments
