@@ -1,8 +1,5 @@
-               push      -1000
-push -4 ll
-
-
-
+               push      e
+    push 5 ll
 
 push -2
 pall
