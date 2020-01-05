@@ -69,6 +69,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"pop", pop},
 		{"add", add},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 
