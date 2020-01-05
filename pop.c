@@ -92,3 +92,45 @@ void sub(stack_t **st, unsigned int line_number)
 		  }
 	    
 }
+/**
+ *
+ *
+ */
+void divfn(stack_t **st, unsigned int line_number)
+{
+
+  unsigned int i = 0, sum=0, summ = 0, res = 0;
+	stack_t *p = *st;
+
+	(void)line_number;
+	while (p != NULL)
+	{
+  
+		p = p->next;
+		i++;
+	}
+       
+	  if (i < 2)
+		  {
+	fprintf(stderr, "L%i: can't div, stack too short\n", line_number);
+	exit(EXIT_FAILURE);
+		  }
+		else
+		  {
+		    
+		    sum +=(*st)->n;
+		    if (sum == 0)
+		      {
+				fprintf(stderr, "L%i: division by zero\n", line_number);
+	exit(EXIT_FAILURE);
+		      }
+		    else
+		      {
+		    pop(&(*st), line_number);
+		    summ += (*st)->n;
+		    res = summ / sum;
+		    (*st)->n = res;
+		      }
+		  }
+	    
+}

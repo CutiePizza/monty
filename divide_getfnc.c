@@ -70,6 +70,7 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"pop", pop},
 		{"add", add},
 		{"sub", sub},
+		{"div", divfn},
 		{NULL, NULL}
 	};
 
