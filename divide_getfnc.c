@@ -8,7 +8,8 @@
  */
 
 void divide(char *line, unsigned int line_num, stack_t **head)
-{       int ok = 0, num = 0;
+{
+	int ok = 0;
 	char *ch, *opcode;
 	void (*fn)(stack_t **, unsigned int);
 
@@ -27,11 +28,9 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		return;
 	opcode = strdup(ch);
 	ch = strtok(0, " \n");
-	if (ch != NULL && check_digit(ch) == 0)
-		num = atoi(ch);
 	ok = push_verify(opcode);
-	if (ok == 0)
-		push(num, &(*head), line_num);
+	if (ok == 0 && ch != NULL)
+		push(ch, &(*head), line_num);
 	else
 	{
 		fn = get_fn(opcode);
@@ -116,7 +115,7 @@ int push_verify(char *ch)
 int check_digit(char *cch)
 {
 	unsigned int i;
-	unsigned int  ok = 0;
+	int  ok = 0;
 
 	if (cch[0] == '-')
 	{

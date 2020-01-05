@@ -45,7 +45,7 @@ typedef struct instruction_s
 
 void divide(char *, unsigned int, stack_t **);
 void (*get_fn(char *ch))(stack_t **, unsigned int);
-void push(int, stack_t **, unsigned int);
+void push(char *, stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);

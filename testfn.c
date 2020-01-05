@@ -4,14 +4,15 @@
  * push - push a new num to the stack
  * @st: top of stack
  * @line_number: line number of function
- * @num: num to add to stack
+ * @ch: num to add to stack
  */
 
-void push(int num, stack_t **st, unsigned int line_number)
+void push(char *ch, stack_t **st, unsigned int line_number)
 {
 	stack_t *node = NULL;
+	(void)line_number;
 
-	if (!num)
+	if (check_digit(ch) == -1)
 	{
 		if (*st != NULL)
 			free_list(*st);
@@ -19,6 +20,8 @@ void push(int num, stack_t **st, unsigned int line_number)
 		fclose(glob);
 		exit(EXIT_FAILURE);
 	}
+	else
+	{
 	node = malloc(sizeof(stack_t));
 	if (node == NULL)
 	{
@@ -28,12 +31,13 @@ void push(int num, stack_t **st, unsigned int line_number)
 		fclose(glob);
 		exit(EXIT_FAILURE);
 	}
-	node->n = num;
+	node->n = atoi(ch);
 	if (*st != NULL)
 		(*st)->prev = node;
 	node->next = (*st);
 	node->prev = NULL;
 	(*st) = node;
+	}
 }
 
 /**

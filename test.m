@@ -1,5 +1,5 @@
-               push        1
-hello push -4 ll
+               push      -1000
+push -4 ll
 
 
 
