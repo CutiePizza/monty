@@ -23,11 +23,11 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	ch = strtok(line, " \n");
+	ch = strtok(line, " \n\t");
 	if (ch == NULL)
 		return;
 	opcode = strdup(ch);
-	ch = strtok(0, " \n");
+	ch = strtok(0, " \n\t");
 	ok = push_verify(opcode);
 	if (ok == 0)
 		push(ch, &(*head), line_num);
