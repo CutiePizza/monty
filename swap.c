@@ -52,3 +52,38 @@ pop(&(*st), line_number);
 add_node(&(*st), num1);
 add_node(&(*st), num2);
 }
+
+/**
+*
+*
+*/
+void mul(stack_t **st, unsigned int line_number)
+{
+
+  unsigned int i = 0, sum=0, summ = 0, res = 0;
+	stack_t *p = *st;
+
+	(void)line_number;
+	while (p != NULL)
+	{
+  
+		p = p->next;
+		i++;
+	}
+       
+	  if (i < 2)
+		  {
+	fprintf(stderr, "L%i: can't mul, stack too short\n", line_number);
+	exit(EXIT_FAILURE);
+		  }
+		else
+		  {
+		    
+		    sum +=(*st)->n;
+		    pop(&(*st), line_number);
+		    summ += (*st)->n;
+		    res = summ * sum;
+		    (*st)->n = res;
+		  }
+	    
+}

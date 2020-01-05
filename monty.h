@@ -55,6 +55,7 @@ void swap(stack_t **st, unsigned int line_number);
 void add(stack_t **st, unsigned int line_number);
 void sub(stack_t **st, unsigned int line_number);
 void divfn(stack_t **st, unsigned int line_number);
+void mul(stack_t **st, unsigned int line_number);
 int push_verify(char *);
 int check_digit(char *);
 #endif
