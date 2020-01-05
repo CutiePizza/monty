@@ -20,6 +20,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 		if (*head != NULL)
 			free_list(*head);
 		fclose(glob);
+		free(line);
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -27,10 +28,12 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	if (ch == NULL)
 		return;
 	opcode = strdup(ch);
+	free(ch);
+	ch = malloc(100);
 	ch = strtok(0, " \n\t");
 	ok = push_verify(opcode);
 	if (ok == 0)
-		push(ch, &(*head), line_num);
+		push(ch, &(*head), line_num, &line);
 	else
 	{
 		fn = get_fn(opcode);
@@ -39,15 +42,15 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 			if (*head != NULL)
 				free_list(*head);
 			fclose(glob);
+			free(line);
 			fprintf(stderr, "L%i: unknown instruction %s\n", line_num, opcode);
 			exit(EXIT_FAILURE);
 		}
-		opcode = NULL;
-		free(opcode);
-		ch = NULL;
-		free(ch);
+		
 		fn(&(*head), line_num);
 	}
+	free(ch);
+	free(opcode);
 }
 
 /**
@@ -63,6 +66,8 @@ void (*get_fn(char *ch))(stack_t **, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"nop", nop},
+		{"swap", swap},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 

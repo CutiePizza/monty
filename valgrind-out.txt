@@ -1,147 +1,1081 @@
-==17376== Memcheck, a memory error detector
-==17376== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==17376== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==17376== Command: ./executable test.m
-==17376== Parent PID: 11344
-==17376== 
---17376-- 
---17376-- Valgrind options:
---17376--    --leak-check=full
---17376--    --show-leak-kinds=all
---17376--    --track-origins=yes
---17376--    --verbose
---17376--    --log-file=valgrind-out.txt
---17376-- Contents of /proc/version:
---17376--   Linux version 5.0.0-37-generic (buildd@lcy01-amd64-023) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #40~18.04.1-Ubuntu SMP Thu Nov 14 12:06:39 UTC 2019
---17376-- 
---17376-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
---17376-- Page sizes: currently 4096, max supported 4096
---17376-- Valgrind library directory: /usr/lib/valgrind
---17376-- Reading syms from /home/ines/Documents/Github/monty/executable
---17376-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
---17376--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
---17376--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
---17376--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
---17376--   .. CRC is valid
---17376-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
---17376--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
---17376--   .. CRC mismatch (computed 41ddb025 wanted 9972f546)
---17376--    object doesn't have a symbol table
---17376--    object doesn't have a dynamic symbol table
---17376-- Scheduler: using generic scheduler lock implementation.
---17376-- Reading suppressions file: /usr/lib/valgrind/default.supp
-==17376== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-17376-by-ines-on-???
-==17376== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-17376-by-ines-on-???
-==17376== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-17376-by-ines-on-???
-==17376== 
-==17376== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==17376== don't want to do, unless you know exactly what you're doing,
-==17376== or are doing some strange experiment):
-==17376==   /usr/lib/valgrind/../../bin/vgdb --pid=17376 ...command...
-==17376== 
-==17376== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==17376==   /path/to/gdb ./executable
-==17376== and then give GDB the following command
-==17376==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=17376
-==17376== --pid is optional if only one valgrind process is running
-==17376== 
---17376-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580608c1 (???)
---17376-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x580608db (???)
---17376-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
---17376--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
---17376--   .. CRC mismatch (computed 50df1b30 wanted 4800a4cf)
---17376--    object doesn't have a symbol table
---17376-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
---17376--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
---17376--   .. CRC mismatch (computed f893b962 wanted 95ee359e)
---17376--    object doesn't have a symbol table
-==17376== WARNING: new redirection conflicts with existing -- ignoring it
---17376--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x580608c1 ???
---17376--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
---17376-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
---17376-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
---17376-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
---17376--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
---17376--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
---17376--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
---17376--   .. CRC is valid
---17376-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
---17376-- REDIR: 0x4fca3c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
---17376-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
---17376-- REDIR: 0x4eda590 (libc.so.6:__GI_strstr) redirected to 0x4c37760 (__strstr_sse2)
---17376-- REDIR: 0x4fc6420 (libc.so.6:__memchr_avx2) redirected to 0x4c33f80 (memchr)
---17376-- REDIR: 0x4fcaad0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
---17376-- REDIR: 0x4fc6300 (libc.so.6:__strspn_sse42) redirected to 0x4c37990 (strspn)
---17376-- REDIR: 0x4fc6070 (libc.so.6:__strcspn_sse42) redirected to 0x4c378d0 (strcspn)
---17376-- REDIR: 0x4fca590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
---17376-- REDIR: 0x4fa5d60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
---17376-- REDIR: 0x4fca1d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
---17376-- REDIR: 0x4fcaab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
---17376-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
-==17376== 
-==17376== HEAP SUMMARY:
-==17376==     in use at exit: 190 bytes in 29 blocks
-==17376==   total heap usage: 39 allocs, 10 frees, 6,126 bytes allocated
-==17376== 
-==17376== Searching for pointers to 29 not-freed blocks
-==17376== Checked 70,312 bytes
-==17376== 
-==17376== 2 bytes in 1 blocks are still reachable in loss record 1 of 4
-==17376==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==17376==    by 0x4ED99B9: strdup (strdup.c:42)
-==17376==    by 0x108B1C: divide (divide_getfnc.c:34)
-==17376==    by 0x108DBD: main (monty.c:35)
-==17376== 
-==17376== 12 bytes in 6 blocks are definitely lost in loss record 2 of 4
-==17376==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==17376==    by 0x4ED99B9: strdup (strdup.c:42)
-==17376==    by 0x108B1C: divide (divide_getfnc.c:34)
-==17376==    by 0x108DBD: main (monty.c:35)
-==17376== 
-==17376== 88 bytes in 11 blocks are definitely lost in loss record 3 of 4
-==17376==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==17376==    by 0x108A6D: divide (divide_getfnc.c:19)
-==17376==    by 0x108DBD: main (monty.c:35)
-==17376== 
-==17376== 88 bytes in 11 blocks are definitely lost in loss record 4 of 4
-==17376==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==17376==    by 0x108A7B: divide (divide_getfnc.c:20)
-==17376==    by 0x108DBD: main (monty.c:35)
-==17376== 
-==17376== LEAK SUMMARY:
-==17376==    definitely lost: 188 bytes in 28 blocks
-==17376==    indirectly lost: 0 bytes in 0 blocks
-==17376==      possibly lost: 0 bytes in 0 blocks
-==17376==    still reachable: 2 bytes in 1 blocks
-==17376==         suppressed: 0 bytes in 0 blocks
-==17376== 
-==17376== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
-==17376== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+==27532== Memcheck, a memory error detector
+==27532== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==27532== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==27532== Command: ./monty test.m
+==27532== Parent PID: 26182
+==27532== 
+--27532-- 
+--27532-- Valgrind options:
+--27532--    --leak-check=full
+--27532--    --show-leak-kinds=all
+--27532--    --track-origins=yes
+--27532--    --verbose
+--27532--    --log-file=valgrind-out.txt
+--27532-- Contents of /proc/version:
+--27532--   Linux version 5.0.0-37-generic (buildd@lcy01-amd64-023) (gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1)) #40~18.04.1-Ubuntu SMP Thu Nov 14 12:06:39 UTC 2019
+--27532-- 
+--27532-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-avx-avx2-bmi
+--27532-- Page sizes: currently 4096, max supported 4096
+--27532-- Valgrind library directory: /usr/lib/valgrind
+--27532-- Reading syms from /home/ines/Documents/Github/monty/monty
+--27532-- Reading syms from /lib/x86_64-linux-gnu/ld-2.27.so
+--27532--   Considering /lib/x86_64-linux-gnu/ld-2.27.so ..
+--27532--   .. CRC mismatch (computed 1b7c895e wanted 2943108a)
+--27532--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.27.so ..
+--27532--   .. CRC is valid
+--27532-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--27532--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--27532--   .. CRC mismatch (computed 41ddb025 wanted 9972f546)
+--27532--    object doesn't have a symbol table
+--27532--    object doesn't have a dynamic symbol table
+--27532-- Scheduler: using generic scheduler lock implementation.
+--27532-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==27532== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-27532-by-ines-on-???
+==27532== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-27532-by-ines-on-???
+==27532== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-27532-by-ines-on-???
+==27532== 
+==27532== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==27532== don't want to do, unless you know exactly what you're doing,
+==27532== or are doing some strange experiment):
+==27532==   /usr/lib/valgrind/../../bin/vgdb --pid=27532 ...command...
+==27532== 
+==27532== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==27532==   /path/to/gdb ./monty
+==27532== and then give GDB the following command
+==27532==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=27532
+==27532== --pid is optional if only one valgrind process is running
+==27532== 
+--27532-- REDIR: 0x401f2f0 (ld-linux-x86-64.so.2:strlen) redirected to 0x580608c1 (???)
+--27532-- REDIR: 0x401f0d0 (ld-linux-x86-64.so.2:index) redirected to 0x580608db (???)
+--27532-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--27532--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--27532--   .. CRC mismatch (computed 50df1b30 wanted 4800a4cf)
+--27532--    object doesn't have a symbol table
+--27532-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--27532--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--27532--   .. CRC mismatch (computed f893b962 wanted 95ee359e)
+--27532--    object doesn't have a symbol table
+==27532== WARNING: new redirection conflicts with existing -- ignoring it
+--27532--     old: 0x0401f2f0 (strlen              ) R-> (0000.0) 0x580608c1 ???
+--27532--     new: 0x0401f2f0 (strlen              ) R-> (2007.0) 0x04c32db0 strlen
+--27532-- REDIR: 0x401d360 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c33ee0 (strcmp)
+--27532-- REDIR: 0x401f830 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c374f0 (mempcpy)
+--27532-- Reading syms from /lib/x86_64-linux-gnu/libc-2.27.so
+--27532--   Considering /lib/x86_64-linux-gnu/libc-2.27.so ..
+--27532--   .. CRC mismatch (computed b1c74187 wanted 042cc048)
+--27532--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.27.so ..
+--27532--   .. CRC is valid
+--27532-- REDIR: 0x4edac70 (libc.so.6:memmove) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9d40 (libc.so.6:strncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edaf50 (libc.so.6:strcasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9790 (libc.so.6:strcat) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9d70 (libc.so.6:rindex) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edc7c0 (libc.so.6:rawmemchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edade0 (libc.so.6:mempcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edac10 (libc.so.6:bcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9d00 (libc.so.6:strncmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9800 (libc.so.6:strcmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edad40 (libc.so.6:memset) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ef80f0 (libc.so.6:wcschr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9ca0 (libc.so.6:strnlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9870 (libc.so.6:strcspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edafa0 (libc.so.6:strncasecmp) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9840 (libc.so.6:strcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edb0e0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9da0 (libc.so.6:strpbrk) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed97c0 (libc.so.6:index) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ed9c70 (libc.so.6:strlen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ee46c0 (libc.so.6:memrchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edaff0 (libc.so.6:strcasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edabe0 (libc.so.6:memchr) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4ef8eb0 (libc.so.6:wcslen) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4eda050 (libc.so.6:strspn) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edaf20 (libc.so.6:stpncpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edaef0 (libc.so.6:stpcpy) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edc7f0 (libc.so.6:strchrnul) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4edb040 (libc.so.6:strncasecmp_l) redirected to 0x4a2a6e0 (_vgnU_ifunc_wrapper)
+--27532-- REDIR: 0x4fca3c0 (libc.so.6:__strrchr_avx2) redirected to 0x4c32730 (rindex)
+--27532-- REDIR: 0x4ed3070 (libc.so.6:malloc) redirected to 0x4c2faa0 (malloc)
+--27532-- REDIR: 0x4eda590 (libc.so.6:__GI_strstr) redirected to 0x4c37760 (__strstr_sse2)
+--27532-- REDIR: 0x4fc6420 (libc.so.6:__memchr_avx2) redirected to 0x4c33f80 (memchr)
+--27532-- REDIR: 0x4fcaad0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4c366e0 (memmove)
+--27532-- REDIR: 0x4fc6300 (libc.so.6:__strspn_sse42) redirected to 0x4c37990 (strspn)
+--27532-- REDIR: 0x4fc6070 (libc.so.6:__strcspn_sse42) redirected to 0x4c378d0 (strcspn)
+--27532-- REDIR: 0x4fca590 (libc.so.6:__strlen_avx2) redirected to 0x4c32cf0 (strlen)
+--27532-- REDIR: 0x4ed3950 (libc.so.6:free) redirected to 0x4c30cd0 (free)
+==27532== Invalid free() / delete / delete[] / realloc()
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2bf is 15 bytes inside a block of size 120 alloc'd
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+--27532-- REDIR: 0x4fa5d60 (libc.so.6:__strcmp_ssse3) redirected to 0x4c33da0 (strcmp)
+==27532== Invalid free() / delete / delete[] / realloc()
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108CCA: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2c4 is 20 bytes inside a block of size 120 alloc'd
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+--27532-- REDIR: 0x4fca1d0 (libc.so.6:__strchrnul_avx2) redirected to 0x4c37020 (strchrnul)
+--27532-- REDIR: 0x4fcaab0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4c37130 (mempcpy)
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB72: strtok_r (strtok_r.c:49)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C379AB: strspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB81: strtok_r (strtok_r.c:56)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB85: strtok_r (strtok_r.c:57)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C378EB: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C37922: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB98: strtok_r (strtok_r.c:65)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b7 is 7 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid write of size 1
+==27532==    at 0x4EDAB9D: strtok_r (strtok_r.c:72)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b7 is 7 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x108E7E: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C32CF2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108ED7: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108ED7: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x108EA0: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4E811B0: ____strtol_l_internal (strtol_l.c:292)
+==27532==    by 0x4E7C68F: atoi (atoi.c:27)
+==27532==    by 0x109370: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4E812F0: ____strtol_l_internal (strtol_l.c:468)
+==27532==    by 0x4E7C68F: atoi (atoi.c:27)
+==27532==    by 0x109370: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4E8129B: ____strtol_l_internal (strtol_l.c:432)
+==27532==    by 0x4E7C68F: atoi (atoi.c:27)
+==27532==    by 0x109370: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b7 is 7 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid write of size 1
+==27532==    at 0x4C3678B: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBC16: getdelim (iogetdelim.c:111)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid write of size 1
+==27532==    at 0x4EBBD34: getdelim (iogetdelim.c:118)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB72: strtok_r (strtok_r.c:49)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C379AB: strspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB81: strtok_r (strtok_r.c:56)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C379E1: strspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB81: strtok_r (strtok_r.c:56)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB85: strtok_r (strtok_r.c:57)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C378EB: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C37922: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b2 is 2 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB98: strtok_r (strtok_r.c:65)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid write of size 1
+==27532==    at 0x4EDAB9D: strtok_r (strtok_r.c:72)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C32CF2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4ED99AD: strdup (strdup.c:41)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4ED99AD: strdup (strdup.c:41)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b2 is 2 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C36788: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 1
+==27532==    at 0x4C36796: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b3 is 3 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid read of size 2
+==27532==    at 0x4C36750: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b4 is 4 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid write of size 2
+==27532==    at 0x4C36753: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBC16: getdelim (iogetdelim.c:111)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== Invalid free() / delete / delete[] / realloc()
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x109077: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== HEAP SUMMARY:
+==27532==     in use at exit: 764 bytes in 15 blocks
+==27532==   total heap usage: 31 allocs, 26 frees, 6,711 bytes allocated
+==27532== 
+==27532== Searching for pointers to 15 not-freed blocks
+==27532== Checked 70,384 bytes
+==27532== 
+==27532== 64 bytes in 8 blocks are definitely lost in loss record 1 of 2
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108B36: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 700 bytes in 7 blocks are definitely lost in loss record 2 of 2
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BE9: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== LEAK SUMMARY:
+==27532==    definitely lost: 764 bytes in 15 blocks
+==27532==    indirectly lost: 0 bytes in 0 blocks
+==27532==      possibly lost: 0 bytes in 0 blocks
+==27532==    still reachable: 0 bytes in 0 blocks
+==27532==         suppressed: 0 bytes in 0 blocks
+==27532== 
+==27532== ERROR SUMMARY: 126 errors from 35 contexts (suppressed: 0 from 0)
+==27532== 
+==27532== 1 errors in context 1 of 35:
+==27532== Invalid free() / delete / delete[] / realloc()
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x109077: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 2 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4E8129B: ____strtol_l_internal (strtol_l.c:432)
+==27532==    by 0x4E7C68F: atoi (atoi.c:27)
+==27532==    by 0x109370: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b7 is 7 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 3 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4E812F0: ____strtol_l_internal (strtol_l.c:468)
+==27532==    by 0x4E7C68F: atoi (atoi.c:27)
+==27532==    by 0x109370: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 4 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4E811B0: ____strtol_l_internal (strtol_l.c:292)
+==27532==    by 0x4E7C68F: atoi (atoi.c:27)
+==27532==    by 0x109370: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 5 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x108EA0: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 6 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x108E7E: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 7 of 35:
+==27532== Invalid write of size 1
+==27532==    at 0x4EDAB9D: strtok_r (strtok_r.c:72)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b7 is 7 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 8 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB98: strtok_r (strtok_r.c:65)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b7 is 7 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 9 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C378EB: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 10 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB85: strtok_r (strtok_r.c:57)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 1 errors in context 11 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C379AB: strspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB81: strtok_r (strtok_r.c:56)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 2 errors in context 12 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C32CF2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108ED7: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 2 errors in context 13 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C37922: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 14 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C32CF2: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4ED99AD: strdup (strdup.c:41)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 15 of 35:
+==27532== Invalid write of size 1
+==27532==    at 0x4EDAB9D: strtok_r (strtok_r.c:72)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 16 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB98: strtok_r (strtok_r.c:65)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 17 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C378EB: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 18 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB85: strtok_r (strtok_r.c:57)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 19 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C379AB: strspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB81: strtok_r (strtok_r.c:56)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 20 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB72: strtok_r (strtok_r.c:49)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 21 of 35:
+==27532== Invalid write of size 1
+==27532==    at 0x4EBBD34: getdelim (iogetdelim.c:118)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 22 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C36796: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b3 is 3 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 3 errors in context 23 of 35:
+==27532== Invalid free() / delete / delete[] / realloc()
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108CCA: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2c4 is 20 bytes inside a block of size 120 alloc'd
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 4 errors in context 24 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4EDAB72: strtok_r (strtok_r.c:49)
+==27532==    by 0x108BFE: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b5 is 5 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 4 errors in context 25 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C36788: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 4 errors in context 26 of 35:
+==27532== Invalid read of size 2
+==27532==    at 0x4C36750: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b4 is 4 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 4 errors in context 27 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108ED7: check_digit (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x109286: push (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x108C2E: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b6 is 6 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 6 errors in context 28 of 35:
+==27532== Invalid free() / delete / delete[] / realloc()
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2bf is 15 bytes inside a block of size 120 alloc'd
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 8 errors in context 29 of 35:
+==27532== Invalid write of size 2
+==27532==    at 0x4C36753: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBC16: getdelim (iogetdelim.c:111)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 9 errors in context 30 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C379E1: strspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB81: strtok_r (strtok_r.c:56)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b1 is 1 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 12 errors in context 31 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C32D04: strlen (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4ED99AD: strdup (strdup.c:41)
+==27532==    by 0x108BCF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b2 is 2 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 12 errors in context 32 of 35:
+==27532== Invalid read of size 1
+==27532==    at 0x4C37922: strcspn (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EDAB94: strtok_r (strtok_r.c:64)
+==27532==    by 0x108BB4: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b2 is 2 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== 
+==27532== 16 errors in context 33 of 35:
+==27532== Invalid write of size 1
+==27532==    at 0x4C3678B: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBC16: getdelim (iogetdelim.c:111)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Address 0x522d2b0 is 0 bytes inside a block of size 120 free'd
+==27532==    at 0x4C30D3B: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x108BDF: divide (in /home/ines/Documents/Github/monty/monty)
+==27532==    by 0x10905D: main (in /home/ines/Documents/Github/monty/monty)
+==27532==  Block was alloc'd at
+==27532==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==27532==    by 0x4EBBB8B: getdelim (iogetdelim.c:62)
+==27532==    by 0x10903D: main (in /home/ines/Documents/Github/monty/monty)
+==27532== 
+==27532== ERROR SUMMARY: 126 errors from 35 contexts (suppressed: 0 from 0)

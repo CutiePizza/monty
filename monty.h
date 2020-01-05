@@ -45,11 +45,13 @@ typedef struct instruction_s
 
 void divide(char *, unsigned int, stack_t **);
 void (*get_fn(char *ch))(stack_t **, unsigned int);
-void push(char *, stack_t **, unsigned int);
+void push(char *, stack_t **, unsigned int, char **);
 void pall(stack_t **, unsigned int);
 void pint(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void free_list(stack_t *head);
+void pop(stack_t **st, unsigned int line_number);
+void swap(stack_t **st, unsigned int line_number);
 int push_verify(char *);
 int check_digit(char *);
 #endif

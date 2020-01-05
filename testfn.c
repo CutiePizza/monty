@@ -7,7 +7,7 @@
  * @ch: num to add to stack
  */
 
-void push(char *ch, stack_t **st, unsigned int line_number)
+void push(char *ch, stack_t **st, unsigned int line_number, char **line)
 {
 	stack_t *node = NULL;
 	(void)line_number;
@@ -16,6 +16,7 @@ void push(char *ch, stack_t **st, unsigned int line_number)
 	{
 		if (*st != NULL)
 			free_list(*st);
+		free(*line);
 		fprintf(stderr, "L%i: usage: push integer\n", line_number);
 		fclose(glob);
 		exit(EXIT_FAILURE);
@@ -27,6 +28,7 @@ void push(char *ch, stack_t **st, unsigned int line_number)
 	{
 		if (*st != NULL)
 			free_list(*st);
+		free(*line);
 		fprintf(stderr, "Error: malloc failed\n");
 		fclose(glob);
 		exit(EXIT_FAILURE);
