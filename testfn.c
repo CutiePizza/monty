@@ -10,7 +10,6 @@
 void push(char *ch, stack_t **st, unsigned int line_number)
 {
 	stack_t *node = NULL;
-	(void)line_number;
 
 	if (ch == NULL || check_digit(ch) == 1)
 	{
@@ -44,7 +43,6 @@ void push(char *ch, stack_t **st, unsigned int line_number)
 
 void pall(stack_t **st, unsigned int line_number)
 {
-	unsigned int i = 0;
 	stack_t *p = *st;
 
 	(void)line_number;
@@ -52,7 +50,6 @@ void pall(stack_t **st, unsigned int line_number)
 	{
 		printf("%d\n", p->n);
 		p = p->next;
-		i++;
 	}
 }
 
@@ -65,8 +62,9 @@ void pall(stack_t **st, unsigned int line_number)
 void pint(stack_t **st, unsigned int line_number)
 {
 	stack_t *p = *st;
+	(void)line_number;
 
-	if (p && line_number)
+	if (p)
 		printf("%d\n", p->n);
 	else
 	{
@@ -84,6 +82,7 @@ void pint(stack_t **st, unsigned int line_number)
 
 void nop(stack_t **st, unsigned int line_number)
 {
-	if (line_number && *st)
+	(void)st;
+	(void)line_number;
 		return;
 }

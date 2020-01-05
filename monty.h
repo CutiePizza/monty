@@ -43,7 +43,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void divide(char *, unsigned int, stack_t **);
+void divide(char *, unsigned int, stack_t **, char **, char **);
 void (*get_fn(char *ch))(stack_t **, unsigned int);
 void push(char *, stack_t **, unsigned int);
 void pall(stack_t **, unsigned int);
@@ -59,4 +59,6 @@ void mul(stack_t **st, unsigned int line_number);
 void modfn(stack_t **st, unsigned int line_number);
 int push_verify(char *);
 int check_digit(char *);
+void malloc_failed(FILE *);
+void print_err(void);
 #endif
