@@ -12,7 +12,7 @@ void push(char *ch, stack_t **st, unsigned int line_number)
 	stack_t *node = NULL;
 	(void)line_number;
 
-	if (check_digit(ch) == 1)
+	if (ch == NULL || check_digit(ch) == 1)
 	{
 		if (*st != NULL)
 			free_list(*st);

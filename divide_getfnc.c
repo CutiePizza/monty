@@ -29,7 +29,7 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	opcode = strdup(ch);
 	ch = strtok(0, " \n");
 	ok = push_verify(opcode);
-	if (ok == 0 && ch != NULL)
+	if (ok == 0)
 		push(ch, &(*head), line_num);
 	else
 	{
