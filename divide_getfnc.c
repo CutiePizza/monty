@@ -5,7 +5,6 @@
  * @line: string to interpret
  * @line_num: Line number in the file
  * @head: Top of the stack
- * @ch: string
  * @opcode: string
  */
 

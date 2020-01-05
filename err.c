@@ -20,7 +20,7 @@ void print_err(void)
 	exit(EXIT_FAILURE);
 }
 /**
- * print_err - display error
+ * cant_open - display error
  * @argv: string
  */
 void cant_open(char *argv)
