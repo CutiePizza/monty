@@ -44,11 +44,13 @@ int main(int argc, char *argv[])
 			free(line);
 			free_list(head);
 			fclose(mo);
+			free(opcode);
 			exit(EXIT_FAILURE);
 		}
 	}
 	free(line);
 	free_list(head);
 	fclose(mo);
+	free(opcode);
 	exit(EXIT_SUCCESS);
 }
