@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	ssize_t re = 0;
 	unsigned int line_num = 1;
 	size_t len = 0;
-	char *line = NULL, *ch, *opcode;
+	char *line = NULL, *opcode;
 	FILE *mo;
 	stack_t *head = NULL;
 
@@ -22,13 +22,7 @@ int main(int argc, char *argv[])
 		print_err();
 	mo = fopen(argv[1], "r");
 	if (mo == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
-	ch = malloc(100);
-	if (ch == NULL)
-		malloc_failed(mo);
+		cant_open(argv[1]);
 	opcode = malloc(100);
 	if (opcode == NULL)
 		malloc_failed(mo);
@@ -37,7 +31,7 @@ int main(int argc, char *argv[])
 		re = getline(&line, &len, mo);
 		if (re == -1)
 			break;
-		divide(line, line_num, &head, &ch, &opcode);
+		divide(line, line_num, &head, &opcode);
 		line_num++;
 		if (glob == 1)
 		{

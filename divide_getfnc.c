@@ -9,20 +9,26 @@
  * @opcode: string
  */
 
-void divide(char *line, unsigned int line_num, stack_t **head,
-char **ch, char **opcode)
+void divide(char *line, unsigned int line_num, stack_t **head, char **opcode)
 {
 	int ok = 0;
 	void (*fn)(stack_t **, unsigned int);
+	char *ch = malloc(sizeof(line));
 
-	*ch = strtok(line, " \n\t");
-	if ((*ch) == NULL)
+	if (ch == NULL)
+	{
+		glob = 1;
+		fprintf(stderr, "Error: malloc failed\n");
 		return;
-	strcpy(*opcode, *ch);
-	*ch = strtok(NULL, " \n\t");
+	}
+	ch = strtok(line, " \n\t");
+	if (ch == NULL)
+		return;
+	strcpy(*opcode, ch);
+	ch = strtok(NULL, " \n\t");
 	ok = push_verify(*opcode);
 	if (ok == 0)
-		push(*ch, &(*head), line_num);
+		push(ch, &(*head), line_num);
 	else
 	{
 		fn = get_fn(*opcode);

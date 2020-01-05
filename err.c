@@ -19,3 +19,11 @@ void print_err(void)
 	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);
 }
+/**
+ * print_err - display error
+ */
+void cant_open(char *argv)
+{
+	fprintf(stderr, "Error: Can't open file %s\n", argv);
+	exit(EXIT_FAILURE);
+}
