@@ -11,14 +11,11 @@
 
 void divide(char *line, unsigned int line_num, stack_t **head)
 {       int ok = 0, num = 0;
-	char *ch, *cch;
+ char *ch, *opcode;
 	void (*fn)(stack_t **, unsigned int);
 	if (line != NULL)
-	{
 	ch = malloc(sizeof(line));
-	cch = malloc(sizeof(line));
-	}
-	if (ch == NULL || cch == NULL)
+	if (ch == NULL)
 	{
 		if (*head != NULL)
 			free_list(*head);
@@ -29,23 +26,28 @@ void divide(char *line, unsigned int line_num, stack_t **head)
 	ch = strtok(line, " \n");
 	if (ch == NULL)
 		return;
-	cch = strtok(0, " \n");
-	if (cch != NULL && check_digit(cch) == 0)
-	  num = atoi(cch);
-	ok = push_verify(ch);
+	opcode = strdup(ch);
+	ch = strtok(0, " \n");
+	if (ch != NULL && check_digit(ch) == 0)
+	  num = atoi(ch);
+	ok = push_verify(opcode);
 	if (ok == 0)
 		   push(num, &(*head), line_num);
 	else
 	  {
-	fn = get_fn(ch);
+	fn = get_fn(opcode);
 	if (fn == NULL)
 	{
 		if (*head != NULL)
 			free_list(*head);
 		fclose(glob);
-		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, ch);
+		fprintf(stderr, "L%i: unknown instruction %s\n", line_num, opcode);
 		exit(EXIT_FAILURE);
 	}
+	if (opcode != NULL)
+	  free(opcode);
+	ch = NULL;
+	free(ch);
 	fn(&(*head), line_num);
 }
 }
